@@ -144,3 +144,34 @@
   (c-set-style "stroustrup")
 )
 
+;;; /usr/share/emacs/site-lisp/tcc-nxml-emacs:  Add these lines
+;;      to your .emacs to use nxml-mode.  For documentation of
+;;      this mode, see http://www.nmt.edu/tcc/help/pubs/nxml/
+;;--
+;; Add the nxml files to emacs's search path for loading:
+;;--
+(setq load-path
+      (append load-path
+              '("~/.emacs.d/site-lisp/nxml-mode-20041004/")))
+;;--
+;; Make sure nxml-mode can autoload
+;;--
+(load "~/.emacs.d/site-lisp/nxml-mode-20041004/rng-auto.el")
+
+;;--
+;; Load nxml-mode for files ending in .xml, .xsl, .rng, .xhtml
+;;--
+(setq auto-mode-alist
+      (cons '("\\.\\(xml\\|xsl\\|rng\\|xhtml\\)\\'" . nxml-mode)
+            auto-mode-alist))
+
+;;; Define a command to insert a fragment from the i/ subdirectory.
+;;
+(defun insert-frag (name)
+  "Like insert-file but prepends 'i/' to the path given."
+  (interactive "MTemplate: ")
+  (insert-file (concat "~/.emacs.d/templates/" name)))
+;;
+;; Bind the above command to C-c C-e.
+;;
+(global-set-key "\C-c\C-e" 'insert-frag)

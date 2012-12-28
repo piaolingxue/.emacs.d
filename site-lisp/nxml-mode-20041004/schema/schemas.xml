@@ -23,6 +23,8 @@
   <documentElement prefix="" localName="article" typeId="DocBook"/>
   <documentElement prefix="" localName="book" typeId="DocBook"/>
 
+  <documentElement prefix="" localName="chapter" typeId="DocBook"/>
+
   <documentElement localName="RDF" typeId="RDF"/>
   <documentElement prefix="rdf" typeId="RDF"/>
   
@@ -31,6 +33,6 @@
   <typeId id="XSLT" uri="xslt.rnc"/>
   <typeId id="RELAX NG" uri="relaxng.rnc"/>
   <typeId id="XHTML" uri="xhtml.rnc"/>
-  <typeId id="DocBook" uri="../../../../docbook/docbook-5.0/rng/docbook.rnc"/>
+  <typeId id="DocBook" uri="../../../../docbook/docbook-5.0/rng/docbookxi.rnc"/>
   <typeId id="RDF" uri="rdfxml.rnc"/>
 </locatingRules>

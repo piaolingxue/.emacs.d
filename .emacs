@@ -167,11 +167,22 @@
 
 ;;; Define a command to insert a fragment from the i/ subdirectory.
 ;;
-(defun insert-frag (name)
-  "Like insert-file but prepends 'i/' to the path given."
-  (interactive "MTemplate: ")
-  (insert-file (concat "~/.emacs.d/templates/" name)))
+;; (defun insert-frag (name)
+;;  "Like insert-file but prepends 'i/' to the path given."
+;;  (interactive "MTemplate: ")
+;;  (insert-file (concat "~/.emacs.d/templates/" name)))
 ;;
 ;; Bind the above command to C-c C-e.
 ;;
-(global-set-key "\C-c\C-e" 'insert-frag)
+;; (global-set-key "\C-c\C-e" 'insert-frag)
+
+
+;;; emacs-template
+;;; When you create a new file with Emacs, 
+;;; package Template supplies an initial buffer content via a template
+(setq load-path
+      (append load-path
+              '("~/.emacs.d/site-lisp/template/")))
+(require 'template)
+(template-initialize)
+

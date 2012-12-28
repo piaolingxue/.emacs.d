@@ -184,5 +184,18 @@
       (append load-path
               '("~/.emacs.d/site-lisp/template/")))
 (require 'template)
+;; (setq template-subdirectories '("~/.emacs.d/site-lisp/.templates")) 
+(setq template-default-directories (cons "~/.emacs.d/site-lisp/.templates/" template-default-directories))
+(setq template-auto-insert t) 
 (template-initialize)
 
+;; Define a command to insert a fragment from the i/ subdirectory.
+;;
+(defun insert-frag (name)
+  "Like insert-file but prepends 'i/' to the path given."
+  (interactive "MTemplate: ")
+  (insert-file (concat "/home/libin/.emacs.d/site-lisp/.templates/" name)))
+;;
+;; Bind the above command to C-c C-e.
+;;
+(global-set-key "\C-c\C-e" 'insert-frag)

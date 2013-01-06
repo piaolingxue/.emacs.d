@@ -31,6 +31,7 @@
   <documentElement localName="locatingRules" uri="locate.rnc"/>
 
   <typeId id="XSLT" uri="xslt.rnc"/>
+
   <typeId id="RELAX NG" uri="relaxng.rnc"/>
   <typeId id="XHTML" uri="xhtml.rnc"/>
   <typeId id="DocBook" uri="../../../../docbook/docbook-5.0/rng/docbookxi.rnc"/>

@@ -1,7 +1,7 @@
 ;;; (set-language-environment 'UTF-8)
 ;;; current emacs core is unicode code...
 
-(set-default-font "Monospace-11")
+(set-default-font "Segoe Print-14")
 
 ;;; emacs configuration
 ;;; (set-foreground-color "grey")
@@ -54,7 +54,8 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-subtle-hacker)
+(load-file "~/.emacs.d/site-lisp/color-theme-cobalt/color-theme-cobalt.el")
+(color-theme-cobalt)
 
 
 ;;; (setq load-path (cons (expand-file-name "/opt/emacs_plugins") load-path))

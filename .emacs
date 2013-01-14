@@ -159,9 +159,6 @@
   "Like insert-file but prepends 'i/' to the path given."
   (interactive "MTemplate: ")
   (insert-file (concat "~/.emacs.d/templates/" name)))
-;;
-;; Bind the above command to C-c C-e.
-;;
 (global-set-key "\C-c\C-e" 'insert-frag)
 
 
@@ -181,7 +178,7 @@
 ;; org-mode
 ;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/lisp/")
-;; (add-to-list 'load-path "~/path/to/orgdir/contrib/lisp" t)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/contrib/lisp" t)
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)

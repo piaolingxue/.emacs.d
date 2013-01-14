@@ -1,13 +1,10 @@
 ;;; (set-language-environment 'UTF-8)
 ;;; current emacs core is unicode code...
 
-(set-default-font "Segoe Print-14")
+;;; (set-default-font "Segoe Print-14")
+(set-default-font "DejaVu Sans Mono-12")
 
 ;;; emacs configuration
-;;; (set-foreground-color "grey")
-;; (set-background-color "black")
-;; (set-cursor-color "gold1")
-;; (set-mouse-color "gold1")
 (set-scroll-bar-mode nil)
 (tool-bar-mode nil)
 (setq default-frame-alist
@@ -16,22 +13,12 @@
  	(left . 45)
   	(width . 160)
   	(height . 45)
-;;;  	(background-color . "black")
-;;;  	(foreground-color . "grey")
-;;;  	(cursor-color . "gold1")
-;;;  	(mouse-color . "gold1")
   	(tool-bar-lines . 0)
   	(menu-bar-lines . 1)
   	(right-fringe)
   	(left-fringe))
 )
 
-;; (set-face-foreground 'highlight "white")
-;; (set-face-background 'highlight "blue")
-;; (set-face-foreground 'region "cyan")
-;; (set-face-background 'region "blue")
-;; (set-face-foreground 'secondary-selection "skyblue")
-;; (set-face-background 'secondary-selection "darkblue")
 
 (display-time-mode 1)
 (setq display-time-24hr-format t)
@@ -168,14 +155,14 @@
 
 ;;; Define a command to insert a fragment from the i/ subdirectory.
 ;;
-;; (defun insert-frag (name)
-;;  "Like insert-file but prepends 'i/' to the path given."
-;;  (interactive "MTemplate: ")
-;;  (insert-file (concat "~/.emacs.d/templates/" name)))
+(defun insert-frag (name)
+  "Like insert-file but prepends 'i/' to the path given."
+  (interactive "MTemplate: ")
+  (insert-file (concat "~/.emacs.d/templates/" name)))
 ;;
 ;; Bind the above command to C-c C-e.
 ;;
-;; (global-set-key "\C-c\C-e" 'insert-frag)
+(global-set-key "\C-c\C-e" 'insert-frag)
 
 
 ;;; emacs-template
@@ -185,18 +172,18 @@
       (append load-path
               '("~/.emacs.d/site-lisp/template/")))
 (require 'template)
-;; (setq template-subdirectories '("~/.emacs.d/site-lisp/.templates")) 
 (setq template-default-directories (cons "~/.emacs.d/site-lisp/.templates/" template-default-directories))
 (setq template-auto-insert t) 
 (template-initialize)
 
-;; Define a command to insert a fragment from the i/ subdirectory.
+
 ;;
-(defun insert-frag (name)
-  "Like insert-file but prepends 'i/' to the path given."
-  (interactive "MTemplate: ")
-  (insert-file (concat "/home/libin/.emacs.d/site-lisp/.templates/" name)))
+;; org-mode
 ;;
-;; Bind the above command to C-c C-e.
-;;
-(global-set-key "\C-c\C-e" 'insert-frag)
+(add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/lisp/")
+;; (add-to-list 'load-path "~/path/to/orgdir/contrib/lisp" t)
+(global-set-key "\C-cl" 'org-store-link)
+(global-set-key "\C-cc" 'org-capture)
+(global-set-key "\C-ca" 'org-agenda)
+(global-set-key "\C-cb" 'org-iswitchb)
+

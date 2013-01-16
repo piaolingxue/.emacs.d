@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;;;### (autoloads (org-babel-describe-bindings) "ob-keys" "ob-keys.el"
-;;;;;;  "f50ec310c1d81f092bdf4223aaf86661")
+;;;;;;  (20716 11026))
 ;;; Generated autoloads from ob-keys.el
 
 (autoload 'org-babel-describe-bindings "ob-keys" "\
@@ -14,7 +14,7 @@ Describe all keybindings behind `org-babel-key-prefix'.
 ;;;***
 
 ;;;### (autoloads (org-babel-lob-get-info org-babel-lob-execute-maybe)
-;;;;;;  "ob-lob" "ob-lob.el" "2911a7425b09b2411451d82e761878e6")
+;;;;;;  "ob-lob" "ob-lob.el" (20716 11026))
 ;;; Generated autoloads from ob-lob.el
 
 (autoload 'org-babel-lob-execute-maybe "ob-lob" "\
@@ -32,7 +32,7 @@ Return a Library of Babel function call as a string.
 ;;;***
 
 ;;;### (autoloads (org-babel-tangle org-babel-tangle-file org-babel-load-file)
-;;;;;;  "ob-tangle" "ob-tangle.el" "c32a248c96cd88e3da0c71e2d185049b")
+;;;;;;  "ob-tangle" "ob-tangle.el" (20716 11026))
 ;;; Generated autoloads from ob-tangle.el
 
 (autoload 'org-babel-load-file "ob-tangle" "\
@@ -76,16 +76,16 @@ exported source code blocks by language.
 ;;;;;;  org-babel-pop-to-session-maybe org-babel-load-in-session-maybe
 ;;;;;;  org-babel-expand-src-block-maybe org-babel-view-src-block-info
 ;;;;;;  org-babel-execute-maybe org-babel-execute-safely-maybe) "ob"
-;;;;;;  "ob.el" "d7149a9570cdc0164c5483b27216b5fb")
+;;;;;;  "ob.el" (20716 11026))
 ;;; Generated autoloads from ob.el
 
 (autoload 'org-babel-execute-safely-maybe "ob" "\
-Not documented
+
 
 \(fn)" nil nil)
 
 (autoload 'org-babel-execute-maybe "ob" "\
-Not documented
+
 
 \(fn)" t nil)
 
@@ -213,12 +213,16 @@ end-body --------- point at the end of the body
 
 \(fn FILE &rest BODY)" nil (quote macro))
 
+(put 'org-babel-map-src-blocks 'lisp-indent-function '1)
+
 (autoload 'org-babel-map-inline-src-blocks "ob" "\
 Evaluate BODY forms on each inline source-block in FILE.
 If FILE is nil evaluate BODY forms on source blocks in current
 buffer.
 
 \(fn FILE &rest BODY)" nil (quote macro))
+
+(put 'org-babel-map-inline-src-blocks 'lisp-indent-function '1)
 
 (autoload 'org-babel-map-call-lines "ob" "\
 Evaluate BODY forms on each call line in FILE.
@@ -227,10 +231,14 @@ buffer.
 
 \(fn FILE &rest BODY)" nil (quote macro))
 
+(put 'org-babel-map-call-lines 'lisp-indent-function '1)
+
 (autoload 'org-babel-map-executables "ob" "\
-Not documented
+
 
 \(fn FILE &rest BODY)" nil (quote macro))
+
+(put 'org-babel-map-executables 'lisp-indent-function '1)
 
 (autoload 'org-babel-execute-buffer "ob" "\
 Execute source code blocks in a buffer.
@@ -388,7 +396,7 @@ agenda-day   The day in the agenda where this is listed
 \(fn CMD-KEY &rest PARAMETERS)" nil (quote macro))
 
 (autoload 'org-store-agenda-views "org-agenda" "\
-Not documented
+
 
 \(fn &rest PARAMETERS)" t nil)
 
@@ -553,7 +561,8 @@ to override `appt-message-warning-time'.
 
 ;;;### (autoloads (org-archive-subtree-default-with-confirmation
 ;;;;;;  org-archive-subtree-default org-toggle-archive-tag org-archive-to-archive-sibling
-;;;;;;  org-archive-subtree) "org-archive" "org-archive.el" "cb370581950dc2bde1c89a6a9d082023")
+;;;;;;  org-archive-subtree) "org-archive" "org-archive.el" (20715
+;;;;;;  64578))
 ;;; Generated autoloads from org-archive.el
 
 (autoload 'org-archive-subtree "org-archive" "\
@@ -602,7 +611,7 @@ This command is set with the variable `org-archive-default-command'.
 ;;;### (autoloads (org-export-ascii-preprocess org-export-as-ascii
 ;;;;;;  org-export-region-as-ascii org-replace-region-by-ascii org-export-as-ascii-to-buffer
 ;;;;;;  org-export-as-utf8-to-buffer org-export-as-utf8 org-export-as-latin1-to-buffer
-;;;;;;  org-export-as-latin1) "org-ascii" "org-ascii.el" "da07ccc26a5d463f4837cb635b822408")
+;;;;;;  org-export-as-latin1) "org-ascii" "org-ascii.el" (20716 11026))
 ;;; Generated autoloads from org-ascii.el
 
 (autoload 'org-export-as-latin1 "org-ascii" "\
@@ -679,7 +688,8 @@ Do extra work for ASCII export.
 
 ;;;***
 
-;;;### (autoloads (org-attach) "org-attach" "org-attach.el" "79417b5570af2dd67ba42a8530b52e02")
+;;;### (autoloads (org-attach) "org-attach" "org-attach.el" (20716
+;;;;;;  11026))
 ;;; Generated autoloads from org-attach.el
 
 (autoload 'org-attach "org-attach" "\
@@ -691,7 +701,7 @@ Shows a list of commands and prompts for another key to execute a command.
 ;;;***
 
 ;;;### (autoloads (org-bbdb-anniversaries) "org-bbdb" "org-bbdb.el"
-;;;;;;  "74769a415220e4a0eedde063eb20d5e3")
+;;;;;;  (20716 11026))
 ;;; Generated autoloads from org-bbdb.el
 
 (autoload 'org-bbdb-anniversaries "org-bbdb" "\
@@ -729,7 +739,7 @@ Special support for editing Org-mode files made to export to beamer.
 ;;; Generated autoloads from org-capture.el
 
 (autoload 'org-capture-string "org-capture" "\
-Not documented
+
 
 \(fn STRING &optional KEYS)" t nil)
 
@@ -768,7 +778,7 @@ Set org-capture-templates to be similar to `org-remember-templates'.
 ;;;### (autoloads (org-dblock-write:clocktable org-clock-report org-clock-get-clocktable
 ;;;;;;  org-clock-display org-clock-sum org-clock-goto org-clock-cancel
 ;;;;;;  org-clock-out org-clock-in-last org-clock-in org-resolve-clocks)
-;;;;;;  "org-clock" "org-clock.el" "4461bda2ed1c6e531b85f8b46eb4257a")
+;;;;;;  "org-clock" "org-clock.el" (20722 35410))
 ;;; Generated autoloads from org-clock.el
 
 (autoload 'org-resolve-clocks "org-clock" "\
@@ -925,7 +935,7 @@ Try very hard to provide sensible version strings.
 ;;;***
 
 ;;;### (autoloads (org-datetree-find-date-create) "org-datetree"
-;;;;;;  "org-datetree.el" "9ca2cfc0338149594d81885680ab2b78")
+;;;;;;  "org-datetree.el" (20716 11026))
 ;;; Generated autoloads from org-datetree.el
 
 (autoload 'org-datetree-find-date-create "org-datetree" "\
@@ -941,7 +951,7 @@ tree can be found.
 ;;;### (autoloads (org-export-as-docbook org-export-as-docbook-pdf-and-open
 ;;;;;;  org-export-as-docbook-pdf org-export-region-as-docbook org-replace-region-by-docbook
 ;;;;;;  org-export-as-docbook-to-buffer org-export-as-docbook-batch)
-;;;;;;  "org-docbook" "org-docbook.el" "b5175098b85e3e658a821b488bc0a9a9")
+;;;;;;  "org-docbook" "org-docbook.el" (20716 11026))
 ;;; Generated autoloads from org-docbook.el
 
 (autoload 'org-export-as-docbook-batch "org-docbook" "\
@@ -1017,7 +1027,7 @@ publishing directory.
 ;;;***
 
 ;;;### (autoloads (org-element-context org-element-at-point org-element-interpret-data)
-;;;;;;  "org-element" "org-element.el" "4ecc313cb6796b01d5954ddba4682d17")
+;;;;;;  "org-element" "org-element.el" (20716 12226))
 ;;; Generated autoloads from org-element.el
 
 (autoload 'org-element-interpret-data "org-element" "\
@@ -1075,7 +1085,7 @@ and :post-blank properties.
 ;;;***
 
 ;;;### (autoloads (org-export-as-org org-export-visible org-export)
-;;;;;;  "org-exp" "org-exp.el" "18f80a2ab3695245ce141dd12493bbdb")
+;;;;;;  "org-exp" "org-exp.el" (20715 64584))
 ;;; Generated autoloads from org-exp.el
 
 (autoload 'org-export "org-exp" "\
@@ -1131,7 +1141,7 @@ directory.
 ;;;***
 
 ;;;### (autoloads (org-feed-show-raw-feed org-feed-goto-inbox org-feed-update
-;;;;;;  org-feed-update-all) "org-feed" "org-feed.el" "f5f190118c0e7321f88972d9a4749f5f")
+;;;;;;  org-feed-update-all) "org-feed" "org-feed.el" (20715 64578))
 ;;; Generated autoloads from org-feed.el
 
 (autoload 'org-feed-update-all "org-feed" "\
@@ -1159,7 +1169,7 @@ Show the raw feed buffer of a feed.
 ;;;***
 
 ;;;### (autoloads (org-footnote-normalize org-footnote-action) "org-footnote"
-;;;;;;  "org-footnote.el" "7c167514518f697ae37118065d47d811")
+;;;;;;  "org-footnote.el" (20715 64578))
 ;;; Generated autoloads from org-footnote.el
 
 (autoload 'org-footnote-action "org-footnote" "\
@@ -1210,7 +1220,7 @@ Additional note on `org-footnote-insert-pos-for-preprocessor':
 ;;;### (autoloads (org-freemind-to-org-mode org-freemind-from-org-sparse-tree
 ;;;;;;  org-freemind-from-org-mode org-freemind-from-org-mode-node
 ;;;;;;  org-freemind-show org-export-as-freemind) "org-freemind"
-;;;;;;  "org-freemind.el" "ffaacef126c9702aa57ce41687b75538")
+;;;;;;  "org-freemind.el" (20715 64578))
 ;;; Generated autoloads from org-freemind.el
 
 (autoload 'org-export-as-freemind "org-freemind" "\
@@ -1270,7 +1280,7 @@ Convert FreeMind file MM-FILE to `org-mode' file ORG-FILE.
 
 ;;;### (autoloads (org-export-as-html org-export-region-as-html org-replace-region-by-html
 ;;;;;;  org-export-as-html-to-buffer org-export-as-html-batch org-export-as-html-and-open)
-;;;;;;  "org-html" "org-html.el" "852ca5585c080a8ee44eacdb90aca346")
+;;;;;;  "org-html" "org-html.el" (20716 12226))
 ;;; Generated autoloads from org-html.el
 
 (put 'org-export-html-style-include-default 'safe-local-variable 'booleanp)
@@ -1349,7 +1359,7 @@ PUB-DIR is set, use this as the publishing directory.
 
 ;;;### (autoloads (org-export-icalendar-combine-agenda-files org-export-icalendar-all-agenda-files
 ;;;;;;  org-export-icalendar-this-file) "org-icalendar" "org-icalendar.el"
-;;;;;;  "1017e9f1f85d0c25fae1a0ea5703a34f")
+;;;;;;  (20715 64578))
 ;;; Generated autoloads from org-icalendar.el
 
 (autoload 'org-export-icalendar-this-file "org-icalendar" "\
@@ -1376,7 +1386,7 @@ The file is stored under the name `org-combined-agenda-icalendar-file'.
 
 ;;;### (autoloads (org-id-store-link org-id-find-id-file org-id-find
 ;;;;;;  org-id-goto org-id-get org-id-get-create) "org-id" "org-id.el"
-;;;;;;  "57ce1e881c03a97750fea6fcbfba15f5")
+;;;;;;  (20722 35410))
 ;;; Generated autoloads from org-id.el
 
 (autoload 'org-id-get-create "org-id" "\
@@ -1423,7 +1433,7 @@ Store a link to the current entry, using its ID.
 ;;;***
 
 ;;;### (autoloads (org-indent-mode) "org-indent" "org-indent.el"
-;;;;;;  "aa4274a858622c6b22f3497df83a7aeb")
+;;;;;;  (20715 64578))
 ;;; Generated autoloads from org-indent.el
 
 (autoload 'org-indent-mode "org-indent" "\
@@ -1440,7 +1450,8 @@ during idle time.
 
 ;;;***
 
-;;;### (autoloads (org-irc-store-link) "org-irc" "org-irc.el" "f5d45d21f475b63408f333384ce1cc61")
+;;;### (autoloads (org-irc-store-link) "org-irc" "org-irc.el" (20715
+;;;;;;  64578))
 ;;; Generated autoloads from org-irc.el
 
 (autoload 'org-irc-store-link "org-irc" "\
@@ -1452,7 +1463,8 @@ Dispatch to the appropriate function to store a link to an IRC session.
 
 ;;;### (autoloads (org-export-as-pdf-and-open org-export-as-pdf org-export-as-latex
 ;;;;;;  org-export-region-as-latex org-replace-region-by-latex org-export-as-latex-to-buffer
-;;;;;;  org-export-as-latex-batch) "org-latex" "org-latex.el" "f5224057e83fb06e245b730d41ab8fee")
+;;;;;;  org-export-as-latex-batch) "org-latex" "org-latex.el" (20715
+;;;;;;  64584))
 ;;; Generated autoloads from org-latex.el
 
 (autoload 'org-export-as-latex-batch "org-latex" "\
@@ -1531,7 +1543,7 @@ Export as LaTeX, then process through to PDF, and open.
 ;;;***
 
 ;;;### (autoloads (org-mobile-pull org-mobile-push) "org-mobile"
-;;;;;;  "org-mobile.el" "2617ca40f7147aa9e041d0defb4351a1")
+;;;;;;  "org-mobile.el" (20721 31345))
 ;;; Generated autoloads from org-mobile.el
 
 (autoload 'org-mobile-push "org-mobile" "\
@@ -1552,7 +1564,7 @@ agenda view showing the flagged items.
 
 ;;;### (autoloads (org-export-as-odf-and-open org-export-as-odf org-export-odt-convert
 ;;;;;;  org-export-as-odt org-export-as-odt-batch org-export-as-odt-and-open)
-;;;;;;  "org-odt" "org-odt.el" "a362046f28ee07a026ab3cd95cf2f391")
+;;;;;;  "org-odt" "org-odt.el" (20722 35410))
 ;;; Generated autoloads from org-odt.el
 
 (put 'org-export-odt-preferred-output-format 'safe-local-variable 'stringp)
@@ -1623,7 +1635,8 @@ formula file.
 
 ;;;***
 
-;;;### (autoloads (org-plot/gnuplot) "org-plot" "org-plot.el" "c0ade398350d86fcbe2d2a2db8c9e9ef")
+;;;### (autoloads (org-plot/gnuplot) "org-plot" "org-plot.el" (20715
+;;;;;;  64578))
 ;;; Generated autoloads from org-plot.el
 
 (autoload 'org-plot/gnuplot "org-plot" "\
@@ -1637,7 +1650,7 @@ line directly before or after the table.
 
 ;;;### (autoloads (org-publish-current-project org-publish-current-file
 ;;;;;;  org-publish-all org-publish) "org-publish" "org-publish.el"
-;;;;;;  "5b8f7e096ac50ffe61b1efc23ade67e6")
+;;;;;;  (20715 64585))
 ;;; Generated autoloads from org-publish.el
 
 (defalias 'org-publish-project 'org-publish)
@@ -1671,7 +1684,7 @@ the project.
 
 ;;;### (autoloads (org-remember-handler org-remember org-remember-apply-template
 ;;;;;;  org-remember-annotation org-remember-insinuate) "org-remember"
-;;;;;;  "org-remember.el" "8695b11a6682036dacc8caac7c71be0d")
+;;;;;;  "org-remember.el" (20715 64578))
 ;;; Generated autoloads from org-remember.el
 
 (autoload 'org-remember-insinuate "org-remember" "\
@@ -1766,7 +1779,7 @@ See also the variable `org-reverse-note-order'.
 ;;;;;;  org-table-justify-field-maybe org-table-align org-table-export
 ;;;;;;  org-table-import org-table-convert-region org-table-create
 ;;;;;;  org-table-create-or-convert-from-region org-table-create-with-table\.el)
-;;;;;;  "org-table" "org-table.el" "bb1b4edf5c1f6affbc4a4ac93e48e43f")
+;;;;;;  "org-table" "org-table.el" (20715 64585))
 ;;; Generated autoloads from org-table.el
 
 (autoload 'org-table-create-with-table\.el "org-table" "\
@@ -2352,7 +2365,7 @@ provide ORGTBL directives for the generated table.
 ;;;***
 
 ;;;### (autoloads (org-export-as-taskjuggler-and-open org-export-as-taskjuggler)
-;;;;;;  "org-taskjuggler" "org-taskjuggler.el" "32757b981673218b34878b9a05e46c8a")
+;;;;;;  "org-taskjuggler" "org-taskjuggler.el" (20715 64585))
 ;;; Generated autoloads from org-taskjuggler.el
 
 (autoload 'org-export-as-taskjuggler "org-taskjuggler" "\
@@ -2379,7 +2392,8 @@ with the TaskJuggler GUI.
 ;;;***
 
 ;;;### (autoloads (org-timer-set-timer org-timer-item org-timer-change-times-in-region
-;;;;;;  org-timer org-timer-start) "org-timer" "org-timer.el" "24d58bf234f548224d83186703c58ff0")
+;;;;;;  org-timer org-timer-start) "org-timer" "org-timer.el" (20715
+;;;;;;  64578))
 ;;; Generated autoloads from org-timer.el
 
 (autoload 'org-timer-start "org-timer" "\
@@ -2440,7 +2454,7 @@ replace any running timer.
 ;;;***
 
 ;;;### (autoloads (org-git-version org-release) "org-version" "org-version.el"
-;;;;;;  (20723 48681))
+;;;;;;  (20726 29115))
 ;;; Generated autoloads from org-version.el
 
 (autoload 'org-release "org-version" "\
@@ -2460,7 +2474,8 @@ The location of ODT styles.")
 
 ;;;***
 
-;;;### (autoloads (org-export-as-xoxo) "org-xoxo" "org-xoxo.el" "3ff04d93032e66aca1e0c6a021c28eca")
+;;;### (autoloads (org-export-as-xoxo) "org-xoxo" "org-xoxo.el" (20716
+;;;;;;  11026))
 ;;; Generated autoloads from org-xoxo.el
 
 (autoload 'org-export-as-xoxo "org-xoxo" "\

@@ -179,6 +179,26 @@
 ;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/contrib/lisp" t)
+
+;; add org todo keywords
+;; you can press 'C-c C-t' followed by the selection key
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(d)")
+	(sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
+	(sequence "|" "CANCELED(c)")))
+
+;; if you would like a TODO entry to automatically change to DONE 
+;; when all children are done
+(defun org-summary-todo (n-done n-not-done)
+  "Switch entry to DONE when all subentries are done, to TODO otherwise."
+  (let (org-log-done org-log-states)   ; turn off logging
+    (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+(add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
+
+;; this allow you to select and deselect tags with
+;; just a single key press.
+(setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-cc" 'org-capture)
 (global-set-key "\C-ca" 'org-agenda)

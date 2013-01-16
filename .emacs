@@ -1,5 +1,5 @@
-;;; (set-language-environment 'UTF-8)
-;;; current emacs core is unicode code...
+;; (set-language-environment 'UTF-8)
+;; current emacs core is unicode code...
 
 ;;; (set-default-font "Segoe Print-14")
 (set-default-font "DejaVu Sans Mono-12")

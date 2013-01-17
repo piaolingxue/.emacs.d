@@ -179,7 +179,6 @@
 ;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/contrib/lisp" t)
-(load "org-mode")
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -214,7 +213,8 @@
  '(org-time-stamp-rounding-minutes 5)
  '(org-use-fast-todo-selection t)
  '(org-use-tag-inheritance nil)
- '(unify-8859-on-encoding-mode t nil (ucs-tables)))
+ ;; '(unify-8859-on-encoding-mode t nil (ucs-tables))
+)
 
 
 ;; add org todo keywords
@@ -249,7 +249,6 @@
 (setq org-timeline-show-empty-dates t)
 (setq org-insert-mode-line-in-empty-file t)
 
-(require 'org-install)
 
 (autoload 'remember "remember" nil t)
 (autoload 'remember-region "remember" nil t)

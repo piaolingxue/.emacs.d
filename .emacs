@@ -1,3 +1,42 @@
+(custom-set-variables
+ ;;; custom-set-variables was added by Custom.
+ ;;; If you edit it by hand, you could mess it up, so be careful.
+ ;;; Your init file should contain only one such instance.
+ ;;; If there is more than one, they won't work right.
+ '(auto-raise-tool-bar-buttons t t)
+ '(auto-resize-tool-bars t t)
+ '(calendar-week-start-day 1)
+ '(case-fold-search t)
+ '(org-agenda-files (quote ("~/org/birthday.org" "~/org/gtd.org")))
+ '(org-agenda-ndays 7)
+ '(org-agenda-repeating-timestamp-show-all nil)
+ '(org-agenda-restore-windows-after-quit t)
+ '(org-agenda-show-all-dates t)
+ '(org-agenda-skip-deadline-if-done t)
+ '(org-agenda-skip-scheduled-if-done t)
+ '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
+ '(org-agenda-start-on-weekday nil)
+ ;;; '(org-agenda-todo-ignore-deadlines t)
+ ;;; '(org-agenda-todo-ignore-scheduled t)
+ ;;; '(org-agenda-todo-ignore-with-date t)
+ '(org-agenda-window-setup (quote other-window))
+ '(org-deadline-warning-days 7)
+ '(org-agenda-include-diary t)
+ ;;; '(org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyles.css\">")
+ '(org-fast-tag-selection-single-key nil)
+ '(org-log-done (quote (done)))
+ '(org-refile-targets (quote (("gtd.org" :maxlevel . 1) ("someday.org" :level . 1))))
+ '(org-reverse-note-order nil)
+ '(org-tags-column -78)
+ '(org-tags-match-list-sublevels nil)
+ '(org-time-stamp-rounding-minutes 5)
+ '(org-use-fast-todo-selection t)
+ '(org-use-tag-inheritance nil)
+ ;;; '(unify-8859-on-encoding-mode t nil (ucs-tables))
+)
+
+
+
 ;;; (set-language-environment 'UTF-8)
 ;;; current emacs core is unicode code...
 
@@ -26,6 +65,11 @@
 (setq display-time-use-mail-icon t)
 (setq display-time-interval 10)
 
+;;; highlight-parentheses is a minor mode to highlight parentheses surrounding point
+(load-file "~/.emacs.d/site-lisp/highlight-parentheses.el")
+(require 'highlight-parentheses)
+(highlight-parentheses-mode 1)
+
 ;;; replace yes/no to y/n
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -41,6 +85,7 @@
 (add-to-list 'load-path "~/.emacs.d/site-lisp/color-theme-6.6.0/")
 (require 'color-theme)
 (color-theme-initialize)
+(color-theme-matrix)
 (load-file "~/.emacs.d/site-lisp/color-theme-cobalt/color-theme-cobalt.el")
 (color-theme-cobalt)
 
@@ -174,66 +219,37 @@
 (template-initialize)
 
 
-;;
-;; org-mode
-;;
+
+
+
+;;;
+;;; org-mode
+;;;
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/lisp/")
 (add-to-list 'load-path "~/.emacs.d/site-lisp/org-7.9.3d/contrib/lisp" t)
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(auto-raise-tool-bar-buttons t t)
- '(auto-resize-tool-bars t t)
- '(calendar-week-start-day 1)
- '(case-fold-search t)
- '(org-agenda-files (quote ("~/org/birthday.org" "~/org/gtd.org")))
- '(org-agenda-ndays 7)
- '(org-agenda-repeating-timestamp-show-all nil)
- '(org-agenda-restore-windows-after-quit t)
- '(org-agenda-show-all-dates t)
- '(org-agenda-skip-deadline-if-done t)
- '(org-agenda-skip-scheduled-if-done t)
- '(org-agenda-sorting-strategy (quote ((agenda time-up priority-down tag-up) (todo tag-up))))
- '(org-agenda-start-on-weekday nil)
- ;; '(org-agenda-todo-ignore-deadlines t)
- ;; '(org-agenda-todo-ignore-scheduled t)
- ;; '(org-agenda-todo-ignore-with-date t)
- '(org-agenda-window-setup (quote other-window))
- '(org-deadline-warning-days 7)
- ;; '(org-export-html-style "<link rel=\"stylesheet\" type=\"text/css\" href=\"mystyles.css\">")
- '(org-fast-tag-selection-single-key nil)
- '(org-log-done (quote (done)))
- '(org-refile-targets (quote (("gtd.org" :maxlevel . 1) ("someday.org" :level . 1))))
- '(org-reverse-note-order nil)
- '(org-tags-column -78)
- '(org-tags-match-list-sublevels nil)
- '(org-time-stamp-rounding-minutes 5)
- '(org-use-fast-todo-selection t)
- '(org-use-tag-inheritance nil)
- ;; '(unify-8859-on-encoding-mode t nil (ucs-tables))
-)
+;;; add habits
+;;; (add-to-list 'org-modules "org-habit")
+(require 'org-habit)
 
 
-;; add org todo keywords
-;; you can press 'C-c C-t' followed by the selection key
+;;; add org todo keywords
+;;; you can press 'C-c C-t' followed by the selection key
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "|" "DONE(d)")
+      '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")
 	(sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
-	(sequence "|" "CANCELED(c)")))
+	))
 
-;; if you would like a TODO entry to automatically change to DONE 
-;; when all children are done
+;;; if you would like a TODO entry to automatically change to DONE 
+;;; when all children are done
 (defun org-summary-todo (n-done n-not-done)
   "Switch entry to DONE when all subentries are done, to TODO otherwise."
   (let (org-log-done org-log-states)   ; turn off logging
     (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
 (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 
-;; this allow you to select and deselect tags with
-;; just a single key press.
+;;; this allow you to select and deselect tags with
+;;; just a single key press.
 (setq org-tag-alist '(("@work" . ?w) ("@home" . ?h) ("laptop" . ?l)))
 
 (global-set-key "\C-cl" 'org-store-link)
@@ -242,7 +258,7 @@
 (global-set-key "\C-cb" 'org-iswitchb)
 
 
-;; (setq org-log-done nil)
+;;; (setq org-log-done nil)
 (setq org-log-done t)
 (setq org-agenda-include-diary nil)
 (setq org-deadline-warning-days 7)
@@ -250,6 +266,7 @@
 (setq org-insert-mode-line-in-empty-file t)
 
 
+;;; config remember-mode
 (autoload 'remember "remember" nil t)
 (autoload 'remember-region "remember" nil t)
 
@@ -260,6 +277,7 @@
 (add-hook 'remember-mode-hook 'org-remember-apply-template)
 (define-key global-map "\C-cr" 'org-remember)
 
+;;; templates for Todo and Note
 (setq org-remember-templates
       '(
 	("Todo" ?t "* TODO %^{任务} %^g\n%?\nAdded: %U" "~/org/gtd.org" "INBOX")
@@ -291,10 +309,12 @@
 		      (org-deadline-warning-days 0)
 		      ))))))
 
-(setq org-todo-keywords '((sequence "TODO" "APPT" "STARTED" "DONE")))
+
+
 (defun gtd ()
   (interactive)
   (find-file "~/org/gtd.org"))
 (global-set-key (kbd "C-c g") 'gtd)
 
 (add-hook 'org-agenda-mode-hook 'hl-line-mode)
+

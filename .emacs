@@ -1,3 +1,4 @@
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -216,10 +217,7 @@
 (setq template-default-directories (cons "~/.emacs.d/site-lisp/.templates/" template-default-directories))
 (setq template-auto-insert t) 
 (template-initialize)
-
-
-
-
+   
 
 ;;
 ;; org-mode
